@@ -62,8 +62,8 @@ class GoogleSheetsTracker {
     };
 
     try {
-      // Send to Google Sheets
-      const response = await fetch(this.scriptUrl, {
+      // Send to Google Sheets (no-cors mode means we can't read response)
+      await fetch(this.scriptUrl, {
         method: 'POST',
         mode: 'no-cors', // Required for Google Apps Script
         headers: {
