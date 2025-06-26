@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { CardItem } from '../components/CardItem';
-import { TallyDisplay } from '../components/TallyDisplay';
-import { SetupInstructions } from '../components/SetupInstructions';
-import { googleSheetsTracker } from '../services/google-sheets-tracker';
-import { analyticsTracker } from '../services/analytics-tracker';
-import { Button } from '../components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { CardItem } from './components/CardItem';
+import { TallyDisplay } from './components/TallyDisplay';
+import { SetupInstructions } from './components/SetupInstructions';
+import { googleSheetsTracker } from './services/google-sheets-tracker';
+import { analyticsTracker } from './services/analytics-tracker';
+import { Button } from './components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
 
 interface CardData {
   id: string;
