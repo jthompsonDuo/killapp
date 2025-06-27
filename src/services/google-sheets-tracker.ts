@@ -8,7 +8,7 @@ interface ClickData {
 
 class GoogleSheetsTracker {
   private userId: string;
-  private scriptUrl: string = 'https://script.google.com/macros/s/AKfycbxJXqUuI0f32lkR9xwH0XLhTLYldzpOQ9p2qLbEpkzh_V50JaGlzn52qXxncXAtPIM/exec'; // 🔥 HARDCODE YOUR URL HERE
+  private scriptUrl: string = 'https://script.google.com/macros/s/YOUR_ACTUAL_SCRIPT_ID_HERE/exec'; // 🔥 REPLACE "YOUR_ACTUAL_SCRIPT_ID_HERE" with your real Google Apps Script ID
 
   constructor() {
     // Generate or retrieve user ID
@@ -18,6 +18,9 @@ class GoogleSheetsTracker {
     // Only use saved URL if it exists, otherwise keep the hardcoded one
     if (savedUrl) {
       this.scriptUrl = savedUrl;
+      console.log('🔧 Using saved Google Sheets URL:', savedUrl);
+    } else {
+      console.log('🔧 Using hardcoded Google Sheets URL:', this.scriptUrl);
     }
   }
 
@@ -40,7 +43,9 @@ class GoogleSheetsTracker {
   }
 
   isConfigured(): boolean {
-    return this.scriptUrl.length > 0 && !this.scriptUrl.includes('YOUR_SCRIPT_ID_HERE');
+    const isConfigured = this.scriptUrl.length > 0 && !this.scriptUrl.includes('YOUR_ACTUAL_SCRIPT_ID_HERE');
+    console.log('🔍 Google Sheets configured?', isConfigured, 'URL:', this.scriptUrl);
+    return isConfigured;
   }
 
   async trackClick(action: 'kill' | 'keep' | 'merge', cardId: string, cardTitle: string) {
@@ -76,7 +81,8 @@ class GoogleSheetsTracker {
         body: JSON.stringify(data)
       });
 
-      console.log('✅ Data sent to Google Sheets:', data);
+      // Log response status (though limited with no-cors mode)
+      console.log('✅ Data sent to Google Sheets:', data, 'Response status:', response.status);
       
       // Also store locally as backup
       this.storeLocallyAsBackup(data);

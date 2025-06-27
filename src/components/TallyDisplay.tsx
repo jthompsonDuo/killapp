@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 interface TallyDisplayProps {
   tallies: {
@@ -10,23 +10,23 @@ interface TallyDisplayProps {
 
 export function TallyDisplay({ tallies }: TallyDisplayProps) {
   return (
-    <Card className="w-full max-w-md">
-      <CardHeader className="text-center pb-4">
-        <CardTitle>Decision Tally</CardTitle>
+    <Card className="w-full max-w-md mb-8">
+      <CardHeader>
+        <CardTitle>Action Tallies</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-3 gap-4 text-center">
-          <div>
-            <div className="text-2xl font-bold text-destructive">{tallies.kill}</div>
-            <div className="text-sm text-muted-foreground">Kill</div>
+          <div className="p-3 bg-destructive/10 rounded-lg">
+            <div className="text-destructive">Kill</div>
+            <div className="text-2xl font-medium">{tallies.kill}</div>
           </div>
-          <div>
-            <div className="text-2xl font-bold text-primary">{tallies.keep}</div>
-            <div className="text-sm text-muted-foreground">Keep</div>
+          <div className="p-3 bg-primary/10 rounded-lg">
+            <div className="text-primary">Keep</div>
+            <div className="text-2xl font-medium">{tallies.keep}</div>
           </div>
-          <div>
-            <div className="text-2xl font-bold text-secondary-foreground">{tallies.merge}</div>
-            <div className="text-sm text-muted-foreground">Merge</div>
+          <div className="p-3 bg-secondary/50 rounded-lg">
+            <div className="text-secondary-foreground">Merge</div>
+            <div className="text-2xl font-medium">{tallies.merge}</div>
           </div>
         </div>
       </CardContent>
