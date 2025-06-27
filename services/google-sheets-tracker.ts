@@ -8,7 +8,7 @@ interface ClickData {
 
 class GoogleSheetsTracker {
   private userId: string;
-  private scriptUrl: string = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec'; // 🔥 HARDCODE YOUR URL HERE
+  private scriptUrl: string = 'https://script.google.com/macros/s/AKfycbxJXqUuI0f32lkR9xwH0XLhTLYldzpOQ9p2qLbEpkzh_V50JaGlzn52qXxncXAtPIM/exec'; // 🔥 REPLACE "YOUR_ACTUAL_SCRIPT_ID_HERE" with your real Google Apps Script ID
 
   constructor() {
     // Generate or retrieve user ID
@@ -18,6 +18,9 @@ class GoogleSheetsTracker {
     // Only use saved URL if it exists, otherwise keep the hardcoded one
     if (savedUrl) {
       this.scriptUrl = savedUrl;
+      console.log('🔧 Using saved Google Sheets URL:', savedUrl);
+    } else {
+      console.log('🔧 Using hardcoded Google Sheets URL:', this.scriptUrl);
     }
   }
 
@@ -40,7 +43,9 @@ class GoogleSheetsTracker {
   }
 
   isConfigured(): boolean {
-    return this.scriptUrl.length > 0 && !this.scriptUrl.includes('YOUR_SCRIPT_ID_HERE');
+    const isConfigured = this.scriptUrl.length > 0 && !this.scriptUrl.includes('YOUR_ACTUAL_SCRIPT_ID_HERE');
+    console.log('🔍 Google Sheets configured?', isConfigured, 'URL:', this.scriptUrl);
+    return isConfigured;
   }
 
   async trackClick(action: 'kill' | 'keep' | 'merge', cardId: string, cardTitle: string) {

@@ -159,6 +159,7 @@ export default function App() {
                   </div>
                 </div>
 
+                {/* Google Sheets URL Input - Now shows immediately when selected */}
                 {trackingMethod === 'google-sheets' && (
                   <div className="border rounded-lg p-4 bg-muted/50">
                     <h4 className="mb-3">Google Sheets Configuration</h4>
@@ -187,6 +188,7 @@ export default function App() {
                       size="sm"
                       onClick={() => {
                         const scriptUrl = googleSheetsTracker.getScriptUrl();
+                        // Convert script URL to sheet URL
                         const sheetUrl = scriptUrl.replace('/macros/s/', '/spreadsheets/d/').replace('/exec', '/edit');
                         window.open(sheetUrl, '_blank');
                       }}
