@@ -8,7 +8,7 @@ interface ClickData {
 
 class GoogleSheetsTracker {
   private userId: string;
-  private scriptUrl: string = 'https://script.google.com/macros/s/YOUR_ACTUAL_SCRIPT_ID_HERE/exec'; // 🔥 REPLACE "YOUR_ACTUAL_SCRIPT_ID_HERE" with your real Google Apps Script ID
+  private scriptUrl: string = 'https://script.google.com/macros/s/AKfycbxJXqUuI0f32lkR9xwH0XLhTLYldzpOQ9p2qLbEpkzh_V50JaGlzn52qXxncXAtPIM/exec'; // 🔥 REPLACE "YOUR_ACTUAL_SCRIPT_ID_HERE" with your real Google Apps Script ID
 
   constructor() {
     // Generate or retrieve user ID
