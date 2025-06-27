@@ -1,0 +1,32 @@
+🧹 MANUAL CLEANUP STEPS - Copy and paste these commands:
+
+# In your terminal, navigate to your project root and run:
+
+# Delete duplicate root files:
+rm App.tsx
+rm main.tsx
+rm -rf components/
+rm -rf services/
+rm -rf styles/
+
+# That's it! Your structure will be:
+├── package.json          ✅
+├── vite.config.ts        ✅
+├── tsconfig.json         ✅
+├── tsconfig.node.json    ✅
+├── index.html           ✅ (points to /src/main.tsx)
+├── netlify.toml         ✅
+├── *.md files           ✅
+└── src/                 ✅ ONLY source code
+    ├── App.tsx
+    ├── main.tsx
+    ├── components/
+    ├── services/
+    └── styles/globals.css
+
+# Then commit and push:
+git add .
+git commit -m "Remove duplicate files, clean project structure"
+git push
+
+# Netlify build will succeed! 🎉
